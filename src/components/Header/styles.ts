@@ -4,10 +4,6 @@ export const Container = styled.header `
     width: 100%;
     height: 4rem;
 
-    border-bottom-width: 1px;
-    border-bottom-color: black;
-    border-bottom-style: dotted;
-
     nav {
         display: flex;
         height: 100%;
@@ -20,6 +16,7 @@ export const Container = styled.header `
 
     nav h1 {
         text-transform: uppercase;
+        font-family: 'Rubik Glitch', system-ui;;
     }
 
     nav ul {
@@ -29,11 +26,22 @@ export const Container = styled.header `
 
     nav ul li {
         padding: 1rem;
+        font-weight: 400;
+
+        transition: all .6s;
+    }
+
+    nav ul li:hover {
+        cursor: pointer;
+
+        font-size: 1.4rem;
     }
 
     .rounded-btn {
         border: 1px solid black;
 
         border-radius: 1rem;
+
+        font-weight: 700;
     }
 `

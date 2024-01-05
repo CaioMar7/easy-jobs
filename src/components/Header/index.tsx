@@ -6,7 +6,7 @@ export function Header() {
     return (
         <Container>
             <nav>
-                <h1> Logo </h1>
+                <h1> EASYJOBS </h1>
                 <ul>
                     <li> <Link to="/"> Encontre uma vaga </Link> </li>
                     <li> <Link to="/"> Login </Link> </li>
