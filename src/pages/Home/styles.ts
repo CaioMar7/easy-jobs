@@ -2,11 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div `
     width: 100%;
-
-    display: grid;
-    grid-template-rows: auto 80% auto;
-
     height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+
+    max-height: 100vh;
+    height: 100vh;
+    overflow-y: hidden;
+
+    position: relative;
 
 `
 
@@ -49,12 +55,6 @@ export const FirstSection = styled.section `
             justify-content: center;
 
             button {
-                font-weight: 700;
-
-                border: none;
-
-                padding: 1rem 2rem;
-
                 align-self: center;
             }
         }
@@ -69,6 +69,10 @@ export const FirstSection = styled.section `
 
         max-width: 100%;
         object-fit: contain;
+    }
+
+    .blob {
+        display: none;
     }
 
     @media (min-width: 820px) {
@@ -90,26 +94,20 @@ export const FirstSection = styled.section `
             justify-content: center;
 
             h1 {
-                max-width: 50%;
-                min-width: 25rem;
+                max-width: 70%;
                 font-size: 2.5rem;
             }
 
             p {
-                min-width: 25rem;
-                max-width: 50%;
+                max-width: 70%;
                 font-size: 1.4rem;
             }
 
-            div {
-                max-width: 50%;
+            div {                
+                max-width: 70%;
                 width: 100%;
 
                 button {
-                    font-weight: 700;
-
-                    border: none;
-
                     padding: 1rem 2rem;
 
                     align-self: center;
@@ -122,11 +120,24 @@ export const FirstSection = styled.section `
         }
 
         .herobanner img {
-            height: 90vh;
+            height: 89vh;
 
             max-width: 100%;
             object-fit: contain;
         }
+
+
+        .blob {
+            display: block;
+            position: absolute;
+
+            width: 40%;
+
+            bottom: -20%;
+            left: -20%;
+        }
+
+       
     }
 
 `
