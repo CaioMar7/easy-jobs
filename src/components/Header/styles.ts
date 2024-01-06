@@ -45,11 +45,9 @@ export const Container = styled.header `
 
     nav ul li:hover {
         cursor: pointer;
-
-        font-size: 1.3rem;
     }
     
-    @media (min-width: 820px) {
+    @media (min-width: 821px) {
 
         nav {
             padding: 0 4rem;

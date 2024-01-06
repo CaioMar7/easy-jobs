@@ -10,7 +10,6 @@ export const Container = styled.div `
 
     max-height: 100vh;
     height: 100vh;
-    overflow-y: hidden;
 
     position: relative;
 
@@ -18,6 +17,11 @@ export const Container = styled.div `
 
 export const FirstSection = styled.section `
     width: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    position: relative;
 
 
     .herotext {
@@ -55,13 +59,17 @@ export const FirstSection = styled.section `
             justify-content: center;
 
             button {
+                width: 70%;
                 align-self: center;
             }
         }
     }
 
     .herobanner {
-        width: 100%;    
+        width: 100%;   
+        display: flex;
+        justify-content: center;
+        align-items: center; 
     }
 
     .herobanner img {
@@ -75,10 +83,12 @@ export const FirstSection = styled.section `
         display: none;
     }
 
-    @media (min-width: 820px) {
+    @media (min-width: 821px) {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+
+        overflow-y: hidden;
 
         gap: 1rem;
 
