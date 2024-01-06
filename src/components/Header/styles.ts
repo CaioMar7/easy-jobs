@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.header `
     width: 100%;
     height: 4rem;
+    padding: 1rem 0;
 
     nav {
         display: flex;
@@ -20,7 +21,6 @@ export const Container = styled.header `
     }
 
     nav ul {
-        display: flex;
         gap: 1rem;
     }
 
@@ -43,5 +43,13 @@ export const Container = styled.header `
         border-radius: 1rem;
 
         font-weight: 700;
+    }
+
+    @media (min-width: 820px) {
+        
+        nav ul {
+            display: flex;
+        }
+
     }
 `
