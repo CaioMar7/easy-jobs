@@ -11,13 +11,15 @@ export const Container = styled.button`
 
     transition: all .6s;
 
+    margin-top: 0.8vh;
+
     a {
         height: 100%;
         width: 100%;
 
         color: ${({theme}) => theme.COLORS.SECONDARY};
 
-        font-size: calc(.7vw + .7rem);
+        font-size: calc(.7vh + .7rem);
     }
 
     &:hover {

@@ -18,7 +18,6 @@ export const Container = styled.div `
 export const FirstSection = styled.section `
     width: 100%;
 
-    overflow-y: auto;
     overflow-x: hidden;
 
     position: relative;
@@ -44,7 +43,7 @@ export const FirstSection = styled.section `
 
         h1 {
             max-width: 90%;
-            font-size: 2rem;
+            font-size: calc(1rem + 2.3vh);
         }
 
         p {
@@ -143,7 +142,7 @@ export const FirstSection = styled.section `
 
             width: 40%;
 
-            bottom: -20%;
+            bottom: -10%;
             left: -20%;
         }
 
