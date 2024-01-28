@@ -16,7 +16,7 @@ export function Home() {
                     <h1> O site mais fácil de divulgar e de encontrar vagas! </h1>
                     <p> Nós da EasyJobs prezamos pela simplicidade tanto na divulgação da vaga, quanto na inscrição! Facilitando para você empresa e para você candidato! </p>
                     <div>
-                        <ActionLinkBtn to="/signup"> Encontre uma vaga </ActionLinkBtn>
+                        <ActionLinkBtn to="/vagas"> Encontre uma vaga </ActionLinkBtn>
                     </div>
                 </div>
                 <svg className="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

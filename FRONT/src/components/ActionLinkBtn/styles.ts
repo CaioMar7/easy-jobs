@@ -29,6 +29,10 @@ export const Container = styled.button`
         a {
             color: ${({theme}) => theme.COLORS.PRIMARY};
         }
+
+        svg {
+            fill: ${({theme}) => theme.COLORS.PRIMARY};
+        }
     }
 
     @media (min-width: 821px) {
