@@ -16,6 +16,6 @@ As ferramentas utilizadas para o desenvolvimento serão:
 
 - React-Hook-Form
 
-LocalStorage
+- LocalStorage
 
 Hooks do React como: useState, useEffect, useNavigate, useSearchParams e useParams.
