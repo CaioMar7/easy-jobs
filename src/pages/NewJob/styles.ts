@@ -17,16 +17,30 @@ export const NewJobForm = styled.form`
 
     gap: 2rem;
 
-    margin-top: 3rem;
+    margin-top: 1rem;
 
-    input {
+    input, select, textarea {
         font-size: 1.2rem;
     }
 
-    label {
-        font-size: 1.6rem;
+    input, select {
+        height: 2rem;
+        width: 80%;
+
+        padding: 0 0.5rem;
     }
 
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        width: 100%;
+        
+        font-size: 1.4rem;
+        
+    }
+    
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -42,46 +56,38 @@ export const CompanyFields = styled.fieldset`
 
     gap: 1.5rem;
 
-    
-    label {
-        width: 100%;
-        font-size: 1.6rem;
-
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-
-        input {
-            height: 2rem;
-            width: 80%;
-
-            padding: 0 0.5rem;
-        }
-    }
-
 `
 
 export const JobFields = styled.fieldset`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
     padding: 1rem;
 
-    gap: 1.5rem;
+    div:nth-child(1) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
 
-    label {
+    div:nth-child(2) {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+    }
 
-        gap: .5rem;
 
-        input, select {
-            height: 2rem;
+    label {
+        textarea {
+            height: 4rem;
             width: 80%;
 
-            padding: 0 0.5rem;
-        }
+            padding: .5rem;
 
+            resize: none;
+        }
     }
 
 `
