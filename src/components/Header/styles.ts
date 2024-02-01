@@ -24,6 +24,8 @@ export const Container = styled.header `
 
         gap:1rem;
 
+        font-family: 'Josefin Sans', sans-serif;
+
         text-transform: uppercase;
 
         svg {

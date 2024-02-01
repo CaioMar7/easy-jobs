@@ -104,7 +104,7 @@ export const JobsList = styled.ul`
 
     max-width: 60%;
 
-    padding: 1rem 1rem;
+    padding: 1rem;
     
     border: 1px solid black;
     border-radius: 1rem;
