@@ -38,6 +38,11 @@ export const NewJobForm = styled.form`
         width: 100%;
         
         font-size: 1.4rem;
+
+        p {
+            font-size: .8rem;
+            color: red;
+        }
         
     }
     

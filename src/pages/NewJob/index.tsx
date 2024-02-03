@@ -6,26 +6,19 @@ import { CompanyFields, Container, FormButtons, JobFields, NewJobForm } from "./
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 
-
-interface NewJobData {
-    cnpj: string,
-    email: string,
-    job: string,
-    locate: string,
-    salary: number,
-    journey: string,
-    jobtype: string,
-    description: string,
-    required: string
-}
-
 const schemaForm = z.object({
-    cnpj: z.string().min(11, "O campo CNPJ deve possuir no minimo 11 caracteres.")
+    cnpj: z.string().min(11, "O campo CNPJ deve possuir no minimo 11 caracteres."),
+    email: z.string().min(1, { message: "O campo email precisa ser preenchido." }),
+    job: z.string().min(1, { message: "O campo cargo precisa ser preenchido." }),
+    salary: z.string().min(1, { message: "O campo salário precisa ser preenchido." }),
+    locate: z.string().min(1, { message: "O campo localização precisa ser preenchido." }),
+    journey: z.string().min(1, { message: "O campo jornada precisa ser preenchido." }),
+    jobtype: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
 })
 
 export function NewJob() {
 
-    const { handleSubmit, register, formState: {errors}} = useForm(
+    const { handleSubmit, register, formState: { errors } } = useForm(
         {
             criteriaMode: "all",
             mode: "all",
@@ -33,12 +26,9 @@ export function NewJob() {
         }
     )
 
-    const handleFormSubmit = (data:any) => {
+    const handleFormSubmit = (data: any) => {
         console.log(data)
     }
-    
-    errors.cnpj?.message && console.error(errors.cnpj?.message)
-
 
     return (
         <Container>
@@ -48,11 +38,19 @@ export function NewJob() {
                     <label htmlFor="cnpj">
                         CNPJ
                         <input type="text" placeholder="Insira aqui o CNPJ da empresa" {...register('cnpj')} id="cnpj"></input>
+                        {
+                            errors.cnpj?.message &&
+                            <p> {errors.cnpj?.message} </p>
+                        }
                     </label>
 
                     <label htmlFor="email">
                         Email para contato
                         <input type="text" placeholder="Insira aqui o email para contato" {...register('email')} id="email"></input>
+                        {
+                            errors.cnpj?.message &&
+                            <p> {errors.cnpj?.message} </p>
+                        }
                     </label>
                 </CompanyFields>
 
@@ -61,21 +59,37 @@ export function NewJob() {
                         <label htmlFor="job">
                             Cargo
                             <input type="text" placeholder="ex: Auxiliar Administrativo" id="job" {...register('job')}></input>
+                            {
+                                errors.cnpj?.message &&
+                                <p> {errors.cnpj?.message} </p>
+                            }
                         </label>
 
                         <label htmlFor="locate">
                             Localização
                             <input type="text" placeholder="ex: Rio de Janeiro, Centro" {...register('locate')} id="locate"></input>
+                            {
+                                errors.cnpj?.message &&
+                                <p> {errors.cnpj?.message} </p>
+                            }
                         </label>
 
                         <label htmlFor="salary">
                             Salário
                             <input type="number" placeholder="ex: R$ 2354,92" {...register('salary')} id="salary"></input>
+                            {
+                                errors.cnpj?.message &&
+                                <p> {errors.cnpj?.message} </p>
+                            }
                         </label>
 
                         <label htmlFor="journey">
                             Jornada
                             <input type="text" placeholder="ex: Segunda a sexta, das 9h as 18h" {...register('journey')} id="journey"></input>
+                            {
+                                errors.cnpj?.message &&
+                                <p> {errors.cnpj?.message} </p>
+                            }
                         </label>
 
                         <label htmlFor="jobtype">
