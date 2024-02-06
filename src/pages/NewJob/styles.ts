@@ -15,12 +15,12 @@ export const NewJobForm = styled.form`
     display: flex;
     flex-direction: column;
 
-    gap: 2rem;
+    gap: 1rem;
 
     margin-top: 1rem;
 
     input, select, textarea {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     input, select {
@@ -30,6 +30,10 @@ export const NewJobForm = styled.form`
         padding: 0 0.5rem;
     }
 
+    select {
+        width: 84%;
+    }
+
     label {
         display: flex;
         flex-direction: column;
@@ -37,11 +41,12 @@ export const NewJobForm = styled.form`
 
         width: 100%;
         
-        font-size: 1.4rem;
+        font-size: 1.2rem;
 
         p {
             font-size: .8rem;
             color: red;
+            margin-bottom: .4rem;
         }
         
     }
@@ -59,7 +64,7 @@ export const CompanyFields = styled.fieldset`
 
     padding: 1rem;
 
-    gap: 1.5rem;
+    gap: .3rem;
 
 `
 
@@ -67,20 +72,20 @@ export const JobFields = styled.fieldset`
 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 
     padding: 1rem;
 
     div:nth-child(1) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+        gap: .5rem;
     }
 
     div:nth-child(2) {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: .5rem;
     }
 
 

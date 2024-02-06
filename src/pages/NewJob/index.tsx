@@ -14,6 +14,8 @@ const schemaForm = z.object({
     locate: z.string().min(1, { message: "O campo localização precisa ser preenchido." }),
     journey: z.string().min(1, { message: "O campo jornada precisa ser preenchido." }),
     jobtype: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
+    description: z.string(),
+    required: z.string()
 })
 
 export function NewJob() {
@@ -39,8 +41,8 @@ export function NewJob() {
                         CNPJ
                         <input type="text" placeholder="Insira aqui o CNPJ da empresa" {...register('cnpj')} id="cnpj"></input>
                         {
-                            errors.cnpj?.message &&
-                            <p> {errors.cnpj?.message} </p>
+                            errors.cnpj &&
+                            <p> {errors.cnpj?.message?.toString()} </p>
                         }
                     </label>
 
@@ -48,8 +50,8 @@ export function NewJob() {
                         Email para contato
                         <input type="text" placeholder="Insira aqui o email para contato" {...register('email')} id="email"></input>
                         {
-                            errors.cnpj?.message &&
-                            <p> {errors.cnpj?.message} </p>
+                            errors.email &&
+                            <p> {errors.email?.message?.toString()} </p>
                         }
                     </label>
                 </CompanyFields>
@@ -60,8 +62,8 @@ export function NewJob() {
                             Cargo
                             <input type="text" placeholder="ex: Auxiliar Administrativo" id="job" {...register('job')}></input>
                             {
-                                errors.cnpj?.message &&
-                                <p> {errors.cnpj?.message} </p>
+                                errors.job &&
+                                <p> {errors.job?.message?.toString()} </p>
                             }
                         </label>
 
@@ -69,8 +71,8 @@ export function NewJob() {
                             Localização
                             <input type="text" placeholder="ex: Rio de Janeiro, Centro" {...register('locate')} id="locate"></input>
                             {
-                                errors.cnpj?.message &&
-                                <p> {errors.cnpj?.message} </p>
+                                errors.locate &&
+                                <p> {errors.locate?.message?.toString()} </p>
                             }
                         </label>
 
@@ -78,8 +80,8 @@ export function NewJob() {
                             Salário
                             <input type="number" placeholder="ex: R$ 2354,92" {...register('salary')} id="salary"></input>
                             {
-                                errors.cnpj?.message &&
-                                <p> {errors.cnpj?.message} </p>
+                                errors.salary &&
+                                <p> {errors.salary?.message?.toString()} </p>
                             }
                         </label>
 
@@ -87,8 +89,8 @@ export function NewJob() {
                             Jornada
                             <input type="text" placeholder="ex: Segunda a sexta, das 9h as 18h" {...register('journey')} id="journey"></input>
                             {
-                                errors.cnpj?.message &&
-                                <p> {errors.cnpj?.message} </p>
+                                errors.journey &&
+                                <p> {errors.journey?.message?.toString()} </p>
                             }
                         </label>
 
@@ -120,7 +122,7 @@ export function NewJob() {
 
                 <FormButtons>
                     <ActionLinkBtn type="submit"> Publicar vaga </ActionLinkBtn>
-                    <ActionLinkBtn> Cancelar publicação </ActionLinkBtn>
+                    <ActionLinkBtn type="button" to="/"> Cancelar publicação </ActionLinkBtn>
                 </FormButtons>
             </NewJobForm>
         </Container>
