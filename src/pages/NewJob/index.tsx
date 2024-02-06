@@ -9,14 +9,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const schemaForm = z.object({
     cnpj: z.string().min(11, "O campo CNPJ deve possuir no minimo 11 caracteres."),
     email: z.string().min(1, { message: "O campo email precisa ser preenchido." }),
-    job: z.string().min(1, { message: "O campo cargo precisa ser preenchido." }),
+    jobname: z.string().min(1, { message: "O campo nome do cargo precisa ser preenchido." }),
     salary: z.string().min(1, { message: "O campo salário precisa ser preenchido." }),
     locate: z.string().min(1, { message: "O campo localização precisa ser preenchido." }),
     journey: z.string().min(1, { message: "O campo jornada precisa ser preenchido." }),
     jobtype: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
-    description: z.string(),
-    required: z.string()
+    description: z.string().optional(),
+    required: z.string().optional(),
+    benefits: z.array(z.string()).optional()
 })
+
+const benefitsList = ["Vale Refeição", "Vale Alimentação", "Vale Transporte", "Plano de Saúde", "Plano Odontológico"]
 
 export function NewJob() {
 
@@ -30,6 +33,7 @@ export function NewJob() {
 
     const handleFormSubmit = (data: any) => {
         console.log(data)
+        alert("Enviado com sucesso!")
     }
 
     return (
@@ -58,12 +62,12 @@ export function NewJob() {
 
                 <JobFields>
                     <div>
-                        <label htmlFor="job">
+                        <label htmlFor="jobname">
                             Cargo
-                            <input type="text" placeholder="ex: Auxiliar Administrativo" id="job" {...register('job')}></input>
+                            <input type="text" placeholder="ex: Auxiliar Administrativo" id="jobname" {...register('jobname')}></input>
                             {
-                                errors.job &&
-                                <p> {errors.job?.message?.toString()} </p>
+                                errors.jobname &&
+                                <p> {errors.jobname?.message?.toString()} </p>
                             }
                         </label>
 
@@ -115,6 +119,15 @@ export function NewJob() {
                             <textarea placeholder="ex: Ensino superior completo, excel avançado..." {...register('required')} id="required"></textarea>
                         </label>
                     </div>
+
+                    {
+                        benefitsList.map((benefit, index) => 
+                        <div>
+                            <label key={index}> {benefit} </label>
+                            <input key={benefit} type="checkbox" value={benefit} {...register('benefits')}/>
+                        </div>
+                        )
+                    }
 
                 </JobFields>
 
