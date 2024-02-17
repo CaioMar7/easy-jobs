@@ -10,7 +10,7 @@ export function Header() {
             <nav>
                 <h1> <Link to="/"> EASYJOBS <PiBagFill /> </Link> </h1>
                 <ul>
-                    <li> <Link to="/divulgarvaga">  Divulgue uma vaga </Link> </li>
+                    <ActionLinkBtn to="/divulgarvaga">  Divulgue uma vaga </ActionLinkBtn>
                     <ActionLinkBtn to="/vagas"> Encontre uma vaga  </ActionLinkBtn>
                 </ul>
             </nav>

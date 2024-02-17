@@ -1,10 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.button`
- 
-    min-height: 3rem;
-    min-width: 4rem;
-
+export const Container = styled(Link)`
     background-color: ${({theme}) => theme.COLORS.PRIMARY};
 
     border: 1px solid ${({theme}) => theme.COLORS.PRIMARY};
@@ -13,22 +10,30 @@ export const Container = styled.button`
 
     margin-top: 0.8vh;
 
-    a {
-        height: 100%;
-        width: 100%;
+    color: ${({theme}) => theme.COLORS.SECONDARY};
 
-        color: ${({theme}) => theme.COLORS.SECONDARY};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        font-size: calc(.7vh + .7rem);
+    min-height: 3rem;
+    min-width: 2rem;
+
+    padding: 0 2rem;
+
+    font-size: calc(.7vh + .7rem);
+
+    gap: 1rem;
+
+    svg {
+        fill: ${({theme}) => theme.COLORS.SECONDARY};
     }
 
     &:hover {
         background-color: ${({theme}) => theme.COLORS.SECONDARY};
         cursor: pointer;
 
-        a {
-            color: ${({theme}) => theme.COLORS.PRIMARY};
-        }
+        color: ${({theme}) => theme.COLORS.PRIMARY};
 
         svg {
             fill: ${({theme}) => theme.COLORS.PRIMARY};

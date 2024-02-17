@@ -76,19 +76,6 @@ export const JobFields = styled.fieldset`
 
     padding: 1rem;
 
-    div:nth-child(1) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: .5rem;
-    }
-
-    div:nth-child(2) {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-    }
-
-
     label {
         textarea {
             height: 4rem;
@@ -102,6 +89,32 @@ export const JobFields = styled.fieldset`
 
 `
 
+export const JobInfos = styled.div `
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+`
+
+export const JobDetails = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+`
+
+export const JobBenefits = styled.div `
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 75%;
+    }
+`
+
 export const FormButtons = styled.div `
     display: flex;
     gap: 2rem;
@@ -113,3 +126,4 @@ export const FormButtons = styled.div `
     }
 
 `
+

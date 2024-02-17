@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { ActionLinkBtn } from "../../components/ActionLinkBtn";
 import { Header } from "../../components/Header";
-import { CompanyFields, Container, FormButtons, JobFields, NewJobForm } from "./styles";
+import { CompanyFields, Container, FormButtons, JobBenefits, JobDetails, JobFields, JobInfos, NewJobForm } from "./styles";
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -61,7 +61,7 @@ export function NewJob() {
                 </CompanyFields>
 
                 <JobFields>
-                    <div>
+                    <JobInfos>
                         <label htmlFor="jobname">
                             Cargo
                             <input type="text" placeholder="ex: Auxiliar Administrativo" id="jobname" {...register('jobname')}></input>
@@ -106,9 +106,9 @@ export function NewJob() {
                                 <option value="remoto">Remoto</option>
                             </select>
                         </label>
-                    </div>
+                    </JobInfos>
 
-                    <div>
+                    <JobDetails>
                         <label htmlFor="description">
                             Descrição
                             <textarea placeholder="ex: Utilizará ferramentas XYZ para..." {...register('description')} id="description"></textarea>
@@ -118,25 +118,29 @@ export function NewJob() {
                             Requisitos
                             <textarea placeholder="ex: Ensino superior completo, excel avançado..." {...register('required')} id="required"></textarea>
                         </label>
-                    </div>
+                    </JobDetails>
 
+                    <JobBenefits>
                     {
                         benefitsList.map((benefit, index) => 
-                        <div>
+                        <div key={index}>
                             <label key={index}> {benefit} </label>
                             <input key={benefit} type="checkbox" value={benefit} {...register('benefits')}/>
                         </div>
                         )
-                    }
+                    }                         
+                    </JobBenefits>
 
                 </JobFields>
 
 
 
                 <FormButtons>
-                    <ActionLinkBtn type="submit"> Publicar vaga </ActionLinkBtn>
-                    <ActionLinkBtn type="button" to="/"> Cancelar publicação </ActionLinkBtn>
+                    <button type="submit"> Publicar vaga </button>
+                    <button type="button"> Cancelar publicação </button>
                 </FormButtons>
+
+
             </NewJobForm>
         </Container>
     )

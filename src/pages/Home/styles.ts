@@ -58,6 +58,7 @@ export const FirstSection = styled.section `
             justify-content: center;
 
             button {
+                
                 width: 70%;
                 align-self: center;
             }
