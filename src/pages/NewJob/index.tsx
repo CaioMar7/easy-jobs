@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { ActionLinkBtn } from "../../components/ActionLinkBtn";
 import { Header } from "../../components/Header";
 import { CompanyFields, Container, FormButtons, JobBenefits, JobDetails, JobFields, JobInfos, NewJobForm } from "./styles";
 
