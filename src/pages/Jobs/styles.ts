@@ -10,6 +10,8 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
 
+        gap: 1rem;
+
         @media (min-width: 821px)  {
             display: flex;
             flex-direction: row;
@@ -32,7 +34,6 @@ export const AsideMenu = styled.aside`
 
 export const FilterForm = styled.form`
     max-width: 80%;
-    height: 50vh;
 
     display: flex;
     flex-direction: column;
@@ -40,7 +41,7 @@ export const FilterForm = styled.form`
 
     justify-content: space-evenly;
 
-    gap: 2rem;
+    gap: .8rem;
 
     padding: 2rem;
 
@@ -56,6 +57,11 @@ export const FilterForm = styled.form`
         svg {
             fill: white;
         }
+    }
+
+    @media (min-width: 821px) {
+        height: 50vh;
+        gap: 2rem;
     }
 `
 
