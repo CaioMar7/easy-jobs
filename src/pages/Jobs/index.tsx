@@ -34,9 +34,12 @@ export function Jobs() {
                         <SelectInput>
                             <fieldset>
                                 <legend>Selecione a modalidade</legend>
-                                <input type="radio" name="action" id="track" value="track" /> <label htmlFor="track">Presencial</label>
-                                <input type="radio" name="action" id="event" value="event" /> <label htmlFor="event">Hibrido</label>
-                                <input type="radio" name="action" id="message" value="message" /> <label htmlFor="message">Remoto</label>
+                                <select>
+                                    <option value={"none"}>Selecione a modalidade</option>
+                                    <option value={"presencial"}>Presencial</option>
+                                    <option value={"hybrid"}>Hibrido</option>
+                                    <option value={"remote"}>Remoto</option>
+                                </select>
                             </fieldset>
                         </SelectInput>
                         <ActionLinkBtn to="/"> Pesquisar <span> <FaSearch /> </span> </ActionLinkBtn>
@@ -99,6 +102,7 @@ export function Jobs() {
                                     <li> Vale Transporte </li>
                                     <li> Plano de Saúde </li>
                                     <li> Plano Odontológico </li>
+                                    <li> Convênio Faculdade </li>
                                     
                                 </ul>
                                 <LocateText>

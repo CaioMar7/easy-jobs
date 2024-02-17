@@ -8,16 +8,25 @@ export const Container = styled.main`
 
     section {
         display: flex;
+        flex-direction: column;
 
-        padding-top: 3rem;
-        
+        @media (min-width: 821px)  {
+            display: flex;
+            flex-direction: row;
+            
+            padding-top: 3rem;
+        }
     }
 
 `
 
 export const AsideMenu = styled.aside`
-    width: 30%;
-    height: 82vh;
+    width: 100%;
+
+    @media (min-width: 821px)  {
+        width: 30%;
+        height: 82vh;
+    }
 
 `
 
@@ -59,13 +68,17 @@ export const SearchInput = styled.div`
         width: 100%;
 
         input {
-            max-width: 80%;
+            max-width: 100%;
 
             height: 2rem;
             
             padding: 0 1rem;
 
-            border-radius: 1rem;
+            border-radius: .5rem;
+
+            outline: black;
+
+            border: 1px solid black;
         }
 
 `
@@ -84,6 +97,8 @@ export const SelectInput = styled.div`
             padding: 0 .5rem;
 
             border-radius:.5rem;
+
+            outline: black;
     }
 
     fieldset {
@@ -102,8 +117,6 @@ export const SelectInput = styled.div`
 export const JobsList = styled.ul`
     flex: 1;
 
-    max-width: 60%;
-
     padding: 1rem;
     
     border: 1px solid black;
@@ -115,6 +128,10 @@ export const JobsList = styled.ul`
     gap: 1rem;
 
     background-color: black;
+
+    @media (min-width: 821px) {
+        max-width: 60%;
+    }
 
 
     li {
@@ -139,13 +156,19 @@ export const JobsList = styled.ul`
 
             text-transform: uppercase;
 
+            font-size: 1rem;
+
+            @media (min-width: 821px) {
+                font-size: 1.4rem;
+            }
+
         }
     }
 
 `
 
 export const DateJob = styled.p`
-    font-size: .7rem;
+    font-size: .6rem;
     font-style: italic;
 
     text-transform: uppercase;
@@ -154,18 +177,37 @@ export const DateJob = styled.p`
 
     text-align: end;
 
-    padding-right: 3rem;
+
+    @media (min-width: 821px) {
+        font-size: .7rem;
+        padding-right: 3rem;
+    }
 `
 
 export const LocateText = styled.p`
+
     width: 20%;
-    
     color: black;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    text-wrap: nowrap;
+
+    margin-left: .5rem;
+
     
-    font-size: 1rem;
+    font-size: .6rem;
 
     svg {
         fill: black;
+    }
+
+    @media (min-width: 821px) {
+        width: 20%;
+        font-size: 1rem;
+        gap: .5rem;
     }
 `
 
@@ -174,16 +216,25 @@ export const JobType = styled.p`
     color: white;
     padding: .7rem;
 
-    font-size: .8rem;
+    font-size: .5rem;
 
     border-radius: .5rem;
+
+    @media (min-width: 821px) {
+        font-size: .8rem;
+    }
+
+
 `
 
 export const Salary = styled.p`
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: .8rem;
 
     span {
+    }
+
+    @media (min-width: 821px) {
         font-size: 1rem;
     }
 
@@ -191,11 +242,14 @@ export const Salary = styled.p`
 
 export const Journey = styled.p`
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: .8rem;
 
     span {
-        font-size: 1rem;
         text-transform: lowercase;
+    }
+    
+    @media (min-width: 821px) {
+        font-size: 1rem;
     }
     
 `
@@ -203,13 +257,16 @@ export const Journey = styled.p`
 export const Benefits = styled.p`
     width: 100%;
 
+    font-size: .8rem;
+
     div {
         display: flex;
         justify-content: space-between;
 
         
         ul {
-            width: 100%;
+            max-width: 80%;
+            overflow-x: auto;
             display: flex;
             gap: .3rem;
 
@@ -220,11 +277,21 @@ export const Benefits = styled.p`
                 color: white;
                 padding: .7rem;
 
-                font-size: .8rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                font-size: .6rem;
 
                 border-radius: .5rem;
+                
             }
         }
+    }
+
+    @media (min-width: 821px) {
+        font-size: 1.2rem;
     }
 
 `
