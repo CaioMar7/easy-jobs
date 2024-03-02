@@ -260,7 +260,7 @@ export const Journey = styled.p`
     
 `
 
-export const Benefits = styled.p`
+export const Benefits = styled.div`
     width: 100%;
 
     font-size: .8rem;

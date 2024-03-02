@@ -6,9 +6,31 @@ import { AsideMenu, Benefits, Container, DateJob, FilterForm, JobType, JobsList,
 
 import { IoMdPin } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
+import { JobSchema } from "../NewJob";
 
+import axios from "axios";
+
+import { useEffect, useState } from "react";
 
 export function Jobs() {
+
+
+    const [jobsList, setJobsList] = useState<JobSchema[] | null>([])
+
+    useEffect(() => {
+
+        async function getJobs(): Promise<JobSchema[]> {
+
+            const response = await axios.get("http://localhost:3333/jobs/")
+
+            setJobsList(response.data)
+
+            return response.data
+        }
+
+        getJobs()
+    }, [])
+
     return (
         <Container>
             <Header />
@@ -46,192 +68,39 @@ export function Jobs() {
                     </FilterForm>
                 </AsideMenu>
                 <JobsList>
-                    <li>
-                        <Link to="/">
-                            Desenvolvedor Web
-                            <JobType>
-                                Remoto
-                            </JobType>
-                            <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
-                        </Link>
+                    {
+                        jobsList && jobsList.map((job, index) => (
+                            <li key={index}>
+                                <Link to="/">
+                                    {job.name}
+                                    <JobType>
+                                        {job.type}
+                                    </JobType>
+                                    <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
+                                </Link>
 
-                        <Salary>
-                            Salário: <span> R$3.900,00 </span>
-                        </Salary>
+                                <Salary>
+                                    Salário: <span> R${job.salary},00 </span>
+                                </Salary>
 
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
+                                <Journey>
+                                    Jornada: <span> {job.journey} </span>
+                                </Journey>
 
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Refeição </li>
-                                    <li> Gympass </li>
-                                    <li> Plano de Saúde </li>
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> Rio de Janeiro
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            Analista Financeiro
-                            <JobType>
-                                Hibrido
-                            </JobType>
-                            <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
-                        </Link>
-
-                        <Salary>
-                            Salário: <span> R$2.950,00 </span>
-                        </Salary>
-
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
-
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Refeição </li>
-                                    <li> Vale Transporte </li>
-                                    <li> Plano de Saúde </li>
-                                    <li> Plano Odontológico </li>
-                                    <li> Convênio Faculdade </li>
-                                    
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> Rio de Janeiro
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            Auxiliar de Serviços Gerais
-                            <JobType>
-                                Presencial
-                            </JobType>
-                            <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
-                        </Link>
-
-                        <Salary>
-                            Salário: <span> R$1.900,00 </span>
-                        </Salary>
-
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
-
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Alimentação </li>
-                                    <li> Vale Transporte </li>
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> São Paulo
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            Assistente Administrativo
-                            <JobType>
-                                Presencial
-                            </JobType>
-                            <DateJob> Publicada em <span> 27/01/2024 </span> </DateJob>
-                        </Link>
-
-                        <Salary>
-                            Salário: <span> R$2.130,00 </span>
-                        </Salary>
-
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
-
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Refeição </li>
-                                    <li> Vale Transporte </li>
-                                    <li> Convênio Faculdade </li>
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> Rio de Janeiro
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            Desenvolvedor Web
-                            <JobType>
-                                Presencial
-                            </JobType>
-                            <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
-                        </Link>
-
-                        <Salary>
-                            Salário: <span> R$1.900,00 </span>
-                        </Salary>
-
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
-
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Refeição </li>
-                                    <li> Vale Transporte </li>
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> Rio de Janeiro
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            Desenvolvedor Web
-                            <JobType>
-                                Presencial
-                            </JobType>
-                            <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
-                        </Link>
-
-                        <Salary>
-                            Salário: <span> R$1.900,00 </span>
-                        </Salary>
-
-                        <Journey>
-                            Jornada: <span> segunda a sexta, das 8h às 17h. </span>
-                        </Journey>
-
-                        <Benefits>
-                            Benefícios
-                            <div>
-                                <ul>
-                                    <li> Vale Refeição </li>
-                                    <li> Vale Transporte </li>
-                                </ul>
-                                <LocateText>
-                                    <IoMdPin/> Rio de Janeiro
-                                </LocateText>
-                            </div>
-                        </Benefits>
-                    </li>
+                                <Benefits>
+                                    Benefícios
+                                    <div>
+                                        <ul>
+                                            <li> {job.benefits} </li>
+                                        </ul>
+                                        <LocateText>
+                                            <IoMdPin />{job.locate}
+                                        </LocateText>
+                                    </div>
+                                </Benefits>
+                            </li>
+                        ))
+                    }
 
                 </JobsList>
             </section>

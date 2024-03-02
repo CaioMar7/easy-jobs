@@ -8,21 +8,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const schemaForm = z.object({
     cnpj: z.string().min(11, "O campo CNPJ deve possuir no minimo 11 caracteres."),
     email: z.string().min(1, { message: "O campo email precisa ser preenchido." }),
-    jobname: z.string().min(1, { message: "O campo nome do cargo precisa ser preenchido." }),
+    name: z.string().min(1, { message: "O campo nome do cargo precisa ser preenchido." }),
     salary: z.string().min(1, { message: "O campo salário precisa ser preenchido." }),
     locate: z.string().min(1, { message: "O campo localização precisa ser preenchido." }),
     journey: z.string().min(1, { message: "O campo jornada precisa ser preenchido." }),
-    jobtype: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
+    type: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
     description: z.string().optional(),
     required: z.string().optional(),
-    benefits: z.array(z.string()).optional()
+    benefits: z.string().optional(),
+    //benefits: z.array(z.string()).optional()
 })
+
+export type JobSchema = z.infer<typeof schemaForm>
 
 const benefitsList = ["Vale Refeição", "Vale Alimentação", "Vale Transporte", "Plano de Saúde", "Plano Odontológico"]
 
 export function NewJob() {
 
-    const { handleSubmit, register, formState: { errors } } = useForm(
+    const { handleSubmit, register, formState: { errors } } = useForm<JobSchema>(
         {
             criteriaMode: "all",
             mode: "all",
@@ -30,7 +33,7 @@ export function NewJob() {
         }
     )
 
-    const handleFormSubmit = (data: any) => {
+    const handleFormSubmit = (data: JobSchema) => {
         console.log(data)
         alert("Enviado com sucesso!")
     }
@@ -61,12 +64,12 @@ export function NewJob() {
 
                 <JobFields>
                     <JobInfos>
-                        <label htmlFor="jobname">
+                        <label htmlFor="job">
                             Cargo
-                            <input type="text" placeholder="ex: Auxiliar Administrativo" id="jobname" {...register('jobname')}></input>
+                            <input type="text" placeholder="ex: Auxiliar Administrativo" id="job" {...register('name')}></input>
                             {
-                                errors.jobname &&
-                                <p> {errors.jobname?.message?.toString()} </p>
+                                errors.name &&
+                                <p> {errors.name?.message?.toString()} </p>
                             }
                         </label>
 
@@ -99,7 +102,7 @@ export function NewJob() {
 
                         <label htmlFor="jobtype">
                             Modalidade
-                            <select {...register('jobtype')}>
+                            <select {...register('type')}>
                                 <option value="presencial">Presencial</option>
                                 <option value="hibrido">Hibrido</option>
                                 <option value="remoto">Remoto</option>
