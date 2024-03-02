@@ -16,6 +16,7 @@ const schemaForm = z.object({
     description: z.string().optional(),
     required: z.string().optional(),
     benefits: z.string().optional(),
+    created_at: z.string().optional(),
     //benefits: z.array(z.string()).optional()
 })
 

@@ -76,7 +76,7 @@ export function Jobs() {
                                     <JobType>
                                         {job.type}
                                     </JobType>
-                                    <DateJob> Publicada em <span> 28/01/2024 </span> </DateJob>
+                                    <DateJob> Publicada em <span> {job.created_at} </span> </DateJob>
                                 </Link>
 
                                 <Salary>
