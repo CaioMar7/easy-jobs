@@ -5,6 +5,14 @@ import { CompanyFields, Container, FormButtons, JobBenefits, JobDetails, JobFiel
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 
+const schemaBenefits = z.object({
+    id: z.number(),  
+    job_id: z.number(),  
+    name: z.string(),  
+    created_at: z.string(),  
+    updated_at: z.string(),  
+})
+
 const schemaForm = z.object({
     cnpj: z.string().min(11, "O campo CNPJ deve possuir no minimo 11 caracteres."),
     email: z.string().min(1, { message: "O campo email precisa ser preenchido." }),
@@ -15,9 +23,8 @@ const schemaForm = z.object({
     type: z.string().min(1, { message: "Uma modalidade precisa ser escolhida." }),
     description: z.string().optional(),
     required: z.string().optional(),
-    benefits: z.string().optional(),
     created_at: z.string().optional(),
-    //benefits: z.array(z.string()).optional()
+    benefits: z.array(schemaBenefits)
 })
 
 export type JobSchema = z.infer<typeof schemaForm>

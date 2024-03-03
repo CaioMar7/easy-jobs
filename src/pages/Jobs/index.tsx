@@ -25,6 +25,8 @@ export function Jobs() {
 
             setJobsList(response.data)
 
+            console.log(response.data)
+
             return response.data
         }
 
@@ -86,12 +88,17 @@ export function Jobs() {
                                 <Journey>
                                     Jornada: <span> {job.journey} </span>
                                 </Journey>
-
+                                    
                                 <Benefits>
                                     Benefícios
                                     <div>
                                         <ul>
-                                            <li> {job.benefits} </li>
+                                            {
+                                                job.benefits.length > 0 ? job.benefits.map( (benefit) => (
+                                                    <li key={benefit.id}> {benefit.name} </li>
+                                                )) :
+                                                <p> Nenhum beneficio foi informado </p>
+                                            }
                                         </ul>
                                         <LocateText>
                                             <IoMdPin />{job.locate}
